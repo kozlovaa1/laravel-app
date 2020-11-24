@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('upload',['as' => 'upload_form', 'uses' => 'App\Http\Controllers\UploadController@getForm']);
+Route::post('upload',['as' => 'upload_file','uses' => 'App\Http\Controllers\UploadController@upload']);
